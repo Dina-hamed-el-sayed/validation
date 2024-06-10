@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Smart Login System</title>
+</head>
+<body>
+
+<!-- Login Form -->
+<div class="container text-center mt-5 py-5 w-50" id="loginForm">
+    <h1>Smart Login System</h1>
+    <form class="w-100 px-5 mx-auto mt-5 py-5" onsubmit="return validateLoginForm()">
+        <div class="mb-3">
+            <input type="email" oninput="validateInput(this)" class="form-control py-3" id="emailInput" placeholder="Enter your email">
+        </div>
+        <div class="mb-3 py-3">
+            <input type="password" oninput="validateInput(this)" class="form-control py-3" id="passwordInput" placeholder="Enter your password">
+        </div>
+        <p id="alertMsg" class="d-none text-danger">All inputs are required.</p>
+        <p id="invalidMsg" class="d-none text-danger">Invalid email or password.</p>
+        <button class="signup-btn py-2 w-100" id="signupBtn" type="submit">Sign In</button>
+    </form>
+    <p class="fs-4">Don't have an account? <button class="bg-transparent border border-0 text-primary fs-4" onclick="showRegistrationForm()">Sign Up</button></p>
+</div>
+
+<!-- Registration Form -->
+<div class="container text-center mt-5 py-5 w-50 d-none" id="registrationForm">
+    <h1>Registration Form</h1>
+    
+        <div class="w-100 px-5 mx-auto mt-5 py-5">
+
+
+
+            <div class="mb-3">
+                <input type="text" class="form-control py-3" id="regName" placeholder="Enter your name">
+            </div>
+            <div class="mb-3">
+                <input type="email" oninput="validateInput(this); checkEmailExists();" class="form-control py-3" id="regEmail" placeholder="Enter your email">
+            </div>
+            <div class="mb-3 py-3">
+                <input type="password" oninput="validateInput(this)" class="form-control py-3" id="regPassword" placeholder="Enter your password">
+            </div>
+            <p id="regAlertMsg" class="d-none text-danger">All inputs are required.</p>
+            <p id="emailExistsMsg" class="d-none text-danger">This email already exists.</p>
+            <p id="regSuccessMsg" class="d-none text-success">Registration successful.</p>
+            <button class="signup-btn py-2 w-100"  onclick=" validateRegistrationForm()"  type="submit">Register</button>
+        </div>
+    
+    <p class="fs-4">Already have an account? <button class="bg-transparent border border-0 text-primary fs-4" onclick="showLoginForm()">Sign In</button></p>
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
